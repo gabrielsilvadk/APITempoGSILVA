@@ -38,3 +38,9 @@ jobs:
 
     - name: Login no Azure Container Registry (ACR)
       run: az acr login --name $ACR_NAME
+
+    - name: Construir e enviar a imagem Docker para o ACR
+      run: | 
+        TAG=$(date +%Y%m%d%H%M%S)  # Gera um timestamp único (YYYYMMDDHHMMSS)
+        docker build -t $ACR_NAME.azurecr.io/$IMAGE_NAME:$TAG .
+        docker push $ACR_NAME.azurecr.io/$IMAGE_NAME:$TAG
