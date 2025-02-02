@@ -9,6 +9,10 @@ on:
   pull_request:
     branches: [ "master" ]
 
+env:
+  ACR_NAME: acrapidemogsilva001  # Substitua pelo nome do seu Azure Container Registry
+  IMAGE_NAME: apitempogsilva  # Nome da imagem no ACR
+
 jobs:
   build:
 
@@ -26,3 +30,8 @@ jobs:
       run: dotnet build --no-restore
     - name: Test
       run: dotnet test --no-build --verbosity normal
+    
+    - name: Login no Azure
+      uses: azure/login@v1
+      with:
+        creds: ${{ secrets.AZURE_CREDENTIALS }}
