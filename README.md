@@ -1,0 +1,1 @@
+Project created to apply the knowledge besides azure pipelines
