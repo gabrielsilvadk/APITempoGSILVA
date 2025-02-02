@@ -44,3 +44,6 @@ jobs:
         TAG=$(date +%Y%m%d%H%M%S)  # Gera um timestamp único (YYYYMMDDHHMMSS)
         docker build -t $ACR_NAME.azurecr.io/$IMAGE_NAME:$TAG .
         docker push $ACR_NAME.azurecr.io/$IMAGE_NAME:$TAG
+
+    - name: Logout do Docker
+      run: docker logout $ACR_NAME.azurecr.io
