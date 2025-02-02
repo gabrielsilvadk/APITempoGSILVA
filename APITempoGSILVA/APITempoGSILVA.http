@@ -1,0 +1,6 @@
+@APITempoGSILVA_HostAddress = http://localhost:5189
+
+GET {{APITempoGSILVA_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
